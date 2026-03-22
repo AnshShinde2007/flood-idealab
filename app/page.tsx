@@ -3,6 +3,7 @@ import { AlertBanner } from '@/components/alert-banner';
 import { StatsSection } from '@/components/stats-section';
 import { LiveUpdatesFeed } from '@/components/live-updates-feed';
 import { AssamMap } from '@/components/assam-map';
+import { DistrictRankings } from '@/components/district-rankings';
 import { MultiChannel } from '@/components/multi-channel';
 import { Footer } from '@/components/footer';
 import { mockUpdates, districts, activeAlerts, stats } from '@/lib/mock-data';
@@ -44,9 +45,10 @@ export default function HomePage() {
                 />
               </div>
 
-              {/* Map Section - Sidebar */}
-              <div className="lg:col-span-2">
+              {/* Map + Rankings - Sidebar */}
+              <div className="lg:col-span-2 space-y-6">
                 <AssamMap districts={districts} />
+                <DistrictRankings districts={districts} />
               </div>
             </div>
 

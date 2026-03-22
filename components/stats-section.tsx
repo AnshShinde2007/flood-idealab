@@ -63,7 +63,7 @@ export function StatsSection({ stats }: StatsSectionProps) {
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-bold text-foreground">Current Situation</h2>
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-3 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
         {statItems.map((stat) => (
           <Card key={stat.label} className="overflow-hidden">
             <CardContent className="p-4">
@@ -77,8 +77,8 @@ export function StatsSection({ stats }: StatsSectionProps) {
                   </p>
                   <p
                     className={`font-bold ${
-                      stat.isTime ? 'text-sm' : 'text-xl'
-                    } text-foreground truncate`}
+                      stat.isTime ? 'text-xs leading-tight break-words' : 'text-xl'
+                    } text-foreground`}
                   >
                     {stat.value}
                   </p>

@@ -113,11 +113,11 @@ export function AssamMap({ districts }: AssamMapProps) {
         <CardContent className="p-0">
           <div className="relative">
             {/* Map Container */}
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto -webkit-overflow-scrolling-touch">
               <svg
                 viewBox="0 0 530 190"
-                className="w-full min-w-[500px] h-auto"
-                style={{ minHeight: '300px' }}
+                className="w-full h-auto"
+                style={{ minWidth: '320px', minHeight: '180px' }}
               >
                 {/* Background */}
                 <rect x="0" y="0" width="530" height="190" className="fill-muted/30" rx="4" />
@@ -176,7 +176,7 @@ export function AssamMap({ districts }: AssamMapProps) {
 
             {/* Selected District Info Panel */}
             {selectedDistrict && (
-              <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-72">
+              <div className="absolute bottom-2 left-2 right-2 sm:left-auto sm:right-4 sm:w-72">
                 <Card className="shadow-lg">
                   <CardHeader className="p-3 pb-2">
                     <div className="flex items-start justify-between">

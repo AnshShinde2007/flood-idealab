@@ -213,7 +213,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 {updates.map((update) => (
                   <div
                     key={update.id}
-                    className="flex items-start justify-between gap-4 rounded-lg border border-border p-4"
+                    className="flex flex-col gap-3 rounded-lg border border-border p-4 sm:flex-row sm:items-start sm:justify-between"
                   >
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2 mb-1">
@@ -243,7 +243,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
                         </p>
                       )}
                     </div>
-                    <div className="flex items-center gap-2 shrink-0">
+                    <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
                       <Dialog
                         open={editingUpdate?.id === update.id}
                         onOpenChange={(open) => !open && setEditingUpdate(null)}

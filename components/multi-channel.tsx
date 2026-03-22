@@ -84,7 +84,7 @@ export function MultiChannel() {
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="default" className="font-mono text-lg font-bold">
+              <Button variant="default" className="font-mono font-bold text-base sm:text-lg break-all">
                 1800-XXX-XXXX
               </Button>
             </div>
