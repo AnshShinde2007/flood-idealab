@@ -6,6 +6,9 @@ import { AssamMap } from '@/components/assam-map';
 import { DistrictRankings } from '@/components/district-rankings';
 import { MultiChannel } from '@/components/multi-channel';
 import { Footer } from '@/components/footer';
+import { ReportFloodModal } from '@/components/report-flood-modal';
+import { WaterLevelChart } from '@/components/water-level-chart';
+import { ReliefCamps } from '@/components/relief-camps';
 import { mockUpdates, districts, activeAlerts, stats } from '@/lib/mock-data';
 
 export default function HomePage() {
@@ -30,6 +33,9 @@ export default function HomePage() {
                 Your trusted source for real-time flood updates across all districts of Assam.
                 Stay informed, stay safe.
               </p>
+              <div className="mt-4 flex items-center justify-center gap-3">
+                <ReportFloodModal />
+              </div>
             </section>
 
             {/* Stats Section */}
@@ -51,6 +57,12 @@ export default function HomePage() {
                 <DistrictRankings districts={districts} />
               </div>
             </div>
+
+            {/* Water Level Trends Chart */}
+            <WaterLevelChart />
+
+            {/* Relief Camps */}
+            <ReliefCamps />
 
             {/* Multi-Channel Section */}
             <MultiChannel />

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { RefreshCw, Filter, Clock, Search, X, Wifi } from 'lucide-react';
+import { RefreshCw, Filter, Clock, Search, X, Wifi, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
@@ -167,6 +167,35 @@ export function LiveUpdatesFeed({ updates: initialUpdates, lastUpdated: initialL
           >
             <RefreshCw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
             <span className="hidden sm:inline">Refresh</span>
+          </Button>
+
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              const headers = ['Time', 'Location', 'District', 'Water Level', 'Action', 'Details'];
+              const rows = filteredUpdates.map((u) => [
+                u.time,
+                u.location,
+                u.district,
+                u.waterLevel,
+                u.action,
+                `"${(u.details || '').replace(/"/g, "'")}"`,
+              ]);
+              const csv = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
+              const blob = new Blob([csv], { type: 'text/csv' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `flood-updates-${new Date().toISOString().slice(0, 10)}.csv`;
+              a.click();
+              URL.revokeObjectURL(url);
+            }}
+            className="gap-2"
+            title="Download updates as CSV"
+          >
+            <Download className="h-4 w-4" />
+            <span className="hidden sm:inline">Export</span>
           </Button>
         </div>
       </div>
